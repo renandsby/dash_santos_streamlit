@@ -24,18 +24,3 @@ col4, col5, col6 = st.columns(3)
 col4.bar_chart(source, x="year", y="yield", color="site", stack=False)
 col5.bar_chart(chart_data)
 col6.bar_chart(source, x="variety", y="yield", color="site", horizontal=True)
-
-import streamlit as st
-import pandas as pd
-import numpy as np
-from vega_datasets import data
-
-# Load dataset
-df = pd.read_csv("./dados/Pasta1.csv", sep=';')
-
-# Sidebar with month selection
-meses = df["MES"].value_counts().index
-mes = st.sidebar.selectbox("MES", meses)
-
-# Simulated chart data
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
